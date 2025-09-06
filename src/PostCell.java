@@ -37,8 +37,8 @@ public class PostCell {
     // если ячейка пустая, ячейка в рабочем статусе и габариты ячейки подходят для посылки)
     public boolean canAcceptShipment(Shipment shipment) {
         return !hasShipment() &&
-                statusOfCell == StatusOfCell.WORK &&
-                Dimensions.isSmaller(shipment.shipmentSize(), cellSize);
+                this.statusOfCell == StatusOfCell.WORK &&
+                this.cellSize.canHold(shipment.shipmentSize());
     }
 
 
