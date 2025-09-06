@@ -1,8 +1,5 @@
+import java.math.BigDecimal;
 
-//Класс Shipment (посылка):
-//Имеет следующие параметры: «Габариты», «Вес» и «Описание».
-//Посылка не обладает дополнительной логикой, кроме конструктора, геттеров.
-//Посылка не может поменять свои характеристики после создания.
-public record Shipment(Dimensions shipmentSize, double weight, String description) {
-
+public record Shipment(
+        Dimensions shipmentSize, BigDecimal weight, String description) {
 }

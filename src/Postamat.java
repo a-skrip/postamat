@@ -1,8 +1,4 @@
-
-
-
-//Класс Postamat (постамат) содержит в себе массив ячеек и должен иметь три метода:
-
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 public class Postamat {
@@ -13,26 +9,21 @@ public class Postamat {
         this.cells = arrCell;
     }
 
-    //метод для загрузки посылки в постамат.
-    //кладёт посылку в ячейку, если она подходит. В ответ возвращает индекс посылки
-    // в массиве ячеек, что позволяет получить посылку по индексу.
     public Integer putShipment(Shipment shipment) {
         for (int cellNumber = 0; cellNumber < cells.length; cellNumber++) {
             PostCell cell = cells[cellNumber];
             if (cell.canAcceptShipment(shipment)) {
-                boolean isPutSucces = cell.putShipment(shipment);
-                if (isPutSucces) {
-                    System.out.println("Посылка заложена в ячейку " + cellNumber);
+                boolean isPutSuccess = cell.putShipment(shipment);
+                if (isPutSuccess) {
+                    System.out.println("Посылка " + shipment.description() + " заложена в ячейку " + cellNumber);
                 }
                 return cellNumber;
             }
         }
-        System.out.println("Не удалось разместить, нет подходящей ячейки");
+        System.out.println("Не удалось разместить посылку " + shipment.description() + ", нет подходящей ячейки");
         return null;
     }
 
-
-    //метод для получения посылки по индексу ячейки.
     public Shipment getShipment(int numberOfCell) {
         if (numberOfCell < 0 || numberOfCell > cells.length) {
             System.out.println("Ячейка с таким номером не найдена");
@@ -40,15 +31,15 @@ public class Postamat {
         return cells[numberOfCell].extractShipment();
     }
 
-    //метод для получения суммы всех загруженных посылок по весу.
-    public double weightAllShipments() {
-        double sumaryWeigh = 0;
+    public BigDecimal weightAllShipments() {
+        BigDecimal weightAll = BigDecimal.valueOf(0);
         for (PostCell cell : cells) {
             if (cell.hasShipment()) {
-                sumaryWeigh += cell.getShipment().weight();
+                weightAll = weightAll.add(cell.getShipmentWeight());
             }
         }
-        return sumaryWeigh;
+        System.out.print("Вес всех отправлений: ");
+        return weightAll;
     }
 
     @Override
@@ -61,7 +52,6 @@ public class Postamat {
     public void print() {
         for (int numOfCell = 0; numOfCell < cells.length; numOfCell++) {
             PostCell cell = cells[numOfCell];
-//            System.out.println("------------");
             System.out.print("#" + numOfCell + " - " + cell.hasShipment() + " / ");
 
         }
