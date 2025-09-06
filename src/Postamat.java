@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 public class Postamat {
@@ -17,7 +18,6 @@ public class Postamat {
                     System.out.println("Посылка " + shipment.description() + " заложена в ячейку " + cellNumber);
                 }
                 return cellNumber;
-
             }
         }
         System.out.println("Не удалось разместить посылку " + shipment.description() + ", нет подходящей ячейки");
@@ -32,15 +32,15 @@ public class Postamat {
     }
 
     //метод для получения суммы всех загруженных посылок по весу.
-    public double weightAllShipments() {
-        double sumaryWeigh = 0;
+    public BigDecimal weightAllShipments() {
+        BigDecimal weightAll = BigDecimal.valueOf(0);
         for (PostCell cell : cells) {
             if (cell.hasShipment()) {
-                sumaryWeigh += cell.getShipment().weight();
+                weightAll = weightAll.add(cell.getShipmentWeight());
             }
         }
         System.out.print("Вес всех отправлений: ");
-        return sumaryWeigh;
+        return weightAll;
     }
 
     @Override
