@@ -52,7 +52,6 @@ public class Postamat {
     public void print() {
         for (int numOfCell = 0; numOfCell < cells.length; numOfCell++) {
             PostCell cell = cells[numOfCell];
-//            System.out.println("------------");
             System.out.print("#" + numOfCell + " - " + cell.hasShipment() + " / ");
 
         }
