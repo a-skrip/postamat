@@ -10,7 +10,6 @@ public class PostCell {
         this.statusOfCell = StatusOfCell.WORK;
     }
 
-    //TODO простой геттер, использую в постамате для получения веса
     public BigDecimal getShipmentWeight() {
         return shipment.weight();
     }
