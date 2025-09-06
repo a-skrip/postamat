@@ -3,9 +3,6 @@ import java.math.BigDecimal;
 public class Main {
     public static void main(String[] args) {
 
-        //В методе main создайте несколько ячеек и постамат на их основе.
-        // Далее создайте несколько посылок, которые помещаются в постамат, и несколько посылок, которые не помещаются.
-        // Проверьте, что постамат в итоге всех операций содержит нужное количество посылок. Извлеките все посылки.
         PostCell[] postCells = new PostCell[5];
         postCells[0] = new PostCell(
                 new Dimensions(BigDecimal.valueOf(10), BigDecimal.valueOf(10), BigDecimal.valueOf(20)));
@@ -19,20 +16,20 @@ public class Main {
                 new Dimensions(BigDecimal.valueOf(101), BigDecimal.valueOf(50), BigDecimal.valueOf(50)));
 
         Shipment shipment0 = new Shipment(
-                new Dimensions(BigDecimal.valueOf(10),BigDecimal.valueOf(10),BigDecimal.valueOf(20)),
-                BigDecimal.valueOf(20),"#0");
+                new Dimensions(BigDecimal.valueOf(10), BigDecimal.valueOf(10), BigDecimal.valueOf(20)),
+                BigDecimal.valueOf(20), "#0");
         Shipment shipment1 = new Shipment(
-                new Dimensions(BigDecimal.valueOf(20),BigDecimal.valueOf(20),BigDecimal.valueOf(20)),
-                BigDecimal.valueOf(30),"#1");
+                new Dimensions(BigDecimal.valueOf(20), BigDecimal.valueOf(20), BigDecimal.valueOf(20)),
+                BigDecimal.valueOf(30), "#1");
         Shipment shipment2 = new Shipment(
-                new Dimensions(BigDecimal.valueOf(19),BigDecimal.valueOf(19),BigDecimal.valueOf(19)),
-                BigDecimal.valueOf(40),"#2");
+                new Dimensions(BigDecimal.valueOf(19), BigDecimal.valueOf(19), BigDecimal.valueOf(19)),
+                BigDecimal.valueOf(40), "#2");
         Shipment shipment3 = new Shipment(
-                new Dimensions(BigDecimal.valueOf(101),BigDecimal.valueOf(10),BigDecimal.valueOf(10)),
-                BigDecimal.valueOf(30),"#3");
+                new Dimensions(BigDecimal.valueOf(101), BigDecimal.valueOf(10), BigDecimal.valueOf(10)),
+                BigDecimal.valueOf(30), "#3");
         Shipment shipment4 = new Shipment(
-                new Dimensions(BigDecimal.valueOf(100),BigDecimal.valueOf(50),BigDecimal.valueOf(50)),
-                BigDecimal.valueOf(20),"#4");
+                new Dimensions(BigDecimal.valueOf(100), BigDecimal.valueOf(50), BigDecimal.valueOf(50)),
+                BigDecimal.valueOf(20), "#4");
 
         Postamat postamat = new Postamat(postCells);
         postamat.putShipment(shipment0);
