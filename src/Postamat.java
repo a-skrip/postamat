@@ -31,7 +31,6 @@ public class Postamat {
         return cells[numberOfCell].extractShipment();
     }
 
-    //метод для получения суммы всех загруженных посылок по весу.
     public BigDecimal weightAllShipments() {
         BigDecimal weightAll = BigDecimal.valueOf(0);
         for (PostCell cell : cells) {
